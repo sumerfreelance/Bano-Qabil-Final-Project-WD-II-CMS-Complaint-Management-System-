@@ -3,7 +3,6 @@
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     width: 99vw;
     max-width: 1000px;
@@ -53,6 +52,11 @@
     width: 97%;
 }
 
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
 .dashboard-container button {
     padding: 10px;
     border: none;
@@ -81,9 +85,11 @@
     .dashboard-container {
         width: 90vw;
     }
+    .dashboard-container select{
+        width: 100%;
+    }
 
-    .dashboard-container button,
-    .dashboard-container select {
+    .dashboard-container button {
         width: 100%;
     }
 }

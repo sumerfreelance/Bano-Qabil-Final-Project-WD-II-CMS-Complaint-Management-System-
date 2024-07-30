@@ -39,8 +39,10 @@ function AdminLogin() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
-        <button type="button" onClick={() => navigate(-1)}>Back</button>
+        <div className="button-container">
+          <button type="submit">Login</button>
+          <button type="button" onClick={() => navigate(-1)}>Back</button>
+        </div>
       </form>
     </div>
   );

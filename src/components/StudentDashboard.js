@@ -63,8 +63,10 @@ function StudentDashboard() {
           onChange={(e) => setComplaint(e.target.value)}
           required
         />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleLogout}>Logout</button>
+        <div className="button-container">
+          <button type="submit">Submit</button>
+          <button type="button" onClick={handleLogout}>Logout</button>
+        </div>
       </form>
     </div>
   );
