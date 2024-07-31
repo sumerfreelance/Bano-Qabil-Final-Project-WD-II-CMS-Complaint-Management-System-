@@ -116,21 +116,35 @@ body {
 /* Responsive styles for screens smaller than 430px */
 @media (max-width: 430px) {
     .header h2 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        /* Decrease font size further */
     }
 
     .header .btn {
         font-size: 0.75rem;
+        /* Adjust button font size */
     }
 
     .table td,
     .table th {
         font-size: 0.75rem;
-        padding: 6px;
+        /* Adjust font size */
+        padding: 4px;
+        /* Adjust padding */
+    }
+
+    .btn {
+        font-size: 0.7rem;
+        /* Adjust button font size */
+        padding: 0.25rem 0.5rem;
+        /* Adjust padding */
     }
 
     .complaints-section {
-        padding: 12px;
+        padding: 10px;
+        /* Adjust padding */
+        margin: 0 5px;
+        /* Adjust horizontal margin */
     }
 
     .header {

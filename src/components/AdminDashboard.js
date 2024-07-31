@@ -1,18 +1,36 @@
-// src/AdminDashboard.js
-import React from 'react';
+import React, { useState } from 'react';
 import './AdminDashboard.css';
 
 function AdminDashboard() {
-  const complaints = [
-    { name: 'John Doe', email: 'john@example.com', category: 'Academic', complaint: 'Issue with grades', status: 'pending' },
-    { name: 'Jane Smith', email: 'jane@example.com', category: 'Administrative', complaint: 'Enrollment issue', status: 'resolved' },
-    { name: 'Alice Johnson', email: 'alice@example.com', category: 'Technical', complaint: 'Website bug', status: 'deleted' },
+  const initialComplaints = [
+    { id: 1, name: 'John Doe', email: 'john@example.com', category: 'Academic', complaint: 'Issue with grades', status: 'pending' },
+    { id: 2, name: 'Jane Smith', email: 'jane@example.com', category: 'Administrative', complaint: 'Enrollment issue', status: 'resolved' },
+    { id: 3, name: 'Alice Johnson', email: 'alice@example.com', category: 'Technical', complaint: 'Website bug', status: 'deleted' },
     // Add more dummy data as needed
   ];
 
+  const [complaints, setComplaints] = useState(initialComplaints);
+
   const handleLogout = () => {
-    // Handle logout logic
-    window.location.href = '/logout';
+    // Handle logout logic here
+    // This can be an API call to logout, or just redirecting
+    window.location.href = '/';
+  };
+
+  const resolveComplaint = (id) => {
+    setComplaints(complaints.map(c =>
+      c.id === id
+        ? { ...c, status: 'resolved' }
+        : c
+    ));
+  };
+
+  const deleteComplaint = (id) => {
+    setComplaints(complaints.map(c =>
+      c.id === id
+        ? { ...c, status: 'deleted' }
+        : c
+    ));
   };
 
   return (
@@ -37,16 +55,16 @@ function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {complaints.filter(c => c.status === 'pending').map((complaint, index) => (
-                <tr key={index}>
+              {complaints.filter(c => c.status === 'pending').map((complaint) => (
+                <tr key={complaint.id}>
                   <td>{complaint.name}</td>
                   <td>{complaint.email}</td>
                   <td>{complaint.category}</td>
                   <td>{complaint.complaint}</td>
                   <td><span className="badge badge-warning">Pending</span></td>
                   <td>
-                    <a href={`/resolve_complaint?id=${index}`} className="btn btn-success btn-sm">Resolve</a>
-                    <a href={`/delete_complaint?id=${index}`} className="btn btn-danger btn-sm">Delete</a>
+                    <button className="btn btn-success btn-sm" onClick={() => resolveComplaint(complaint.id)}>Resolve</button>
+                    <button className="btn btn-danger btn-sm" onClick={() => deleteComplaint(complaint.id)}>Delete</button>
                   </td>
                 </tr>
               ))}
@@ -67,8 +85,8 @@ function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {complaints.filter(c => c.status === 'resolved').map((complaint, index) => (
-                <tr key={index}>
+              {complaints.filter(c => c.status === 'resolved').map((complaint) => (
+                <tr key={complaint.id}>
                   <td>{complaint.name}</td>
                   <td>{complaint.email}</td>
                   <td>{complaint.category}</td>
@@ -93,8 +111,8 @@ function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {complaints.filter(c => c.status === 'deleted').map((complaint, index) => (
-                <tr key={index}>
+              {complaints.filter(c => c.status === 'deleted').map((complaint) => (
+                <tr key={complaint.id}>
                   <td>{complaint.name}</td>
                   <td>{complaint.email}</td>
                   <td>{complaint.category}</td>
