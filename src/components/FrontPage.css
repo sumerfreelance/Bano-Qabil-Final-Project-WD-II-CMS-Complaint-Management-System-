@@ -1,0 +1,108 @@
+body {
+    background-color: #007bff;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    /* Default padding for container */
+}
+
+h1 {
+    margin-bottom: 40px;
+    color: white;
+    font-size: 3vw;
+    /* Responsive font size */
+    animation: fadeInDown 2s ease-out, blinkText 8s;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    /* Maximum width for the container */
+}
+
+.btn {
+    padding: 15px 30px;
+    /* Increase padding for larger buttons */
+    font-size: 1.2rem;
+    /* Set a fixed font size */
+    color: #007bff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    text-decoration: none;
+    /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeInUp 2s ease-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+        /* Reduce padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 5vw;
+    }
+
+    .button-container {
+        padding: 0 20px;
+        /* Add padding to create equal gaps on smaller screens */
+    }
+
+    .btn {
+        padding: 12px 24px;
+        /* Adjust padding */
+        font-size: 1.25rem;
+        /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+        /* Adjust padding on very small screens */
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+
+    .button-container {
+        padding: 0 40px;
+        /* Increase padding to create more equal gaps */
+    }
+
+    .btn {
+        padding: 10px 20px;
+        /* Adjust padding */
+        font-size: 1rem;
+        /* Adjust font size */
+    }
+}
